@@ -1,184 +1,256 @@
-// mật khẩu
-let password = "nguoiemyeunhatlabi_28082010"
+const PASSWORD="28070808"
 
-function checkPass(){
 
-let pass = document.getElementById("pass").value
+function start(){
 
-if(pass === password){
+document.getElementById("cover").classList.add("hidden")
+document.getElementById("login").classList.remove("hidden")
 
-document.getElementById("login").style.display = "none"
+}
 
+
+function checkPassword(){
+
+let pass=document.getElementById("password").value
+
+if(pass===PASSWORD){
+
+document.getElementById("login").classList.add("hidden")
+document.getElementById("heartScene").classList.remove("hidden")
+
+setTimeout(splitHeart,1500)
+
+}else{
+
+alert("Sai mật khẩu!")
+
+}
+
+}
+
+
+/* ===== TIM VỠ ĐÔI ===== */
+
+function splitHeart(){
+
+let heart=document.getElementById("heart")
+
+heart.innerHTML="💔"
+
+heart.classList.add("splitLeft")
+
+setTimeout(()=>{
+
+document.getElementById("heartScene").classList.add("hidden")
 startQuiz()
 
-}
-
-else{
-
-document.getElementById("loginError").innerText = "Sai mật khẩu rồi :<"
-
-}
+},1200)
 
 }
 
 
+/* ===== QUIZ ===== */
 
-// danh sách câu hỏi
+let quiz=[
 
-let questions = [
-
-{q:"1. ăn em thích nhất là gì?",a:["Gà rán","Khoai tây","Mì ý","Sushi"],c:1},
-
-{q:"2. Đồ uống em thích nhất là:",a:["Trà đào","Matcha latte / socola","Cà phê sữa","Trà sữa"],c:1},
-
-{q:"3. Em thích anh gọi em bằng gì nhất?",a:["Bé","Cục cưng","Công chúa nhỏ","Em yêu"],c:2},
-
-{q:"4. Khi em buồn em muốn anh:",a:["Để yên","Nhắn ổn không","Dỗ dành","Mua đồ ăn"],c:2},
-
-{q:"5. Đi chơi em thích:",a:["Xem phim","Đi ăn","Đi dạo","TTTM"],c:1},
-
-{q:"6. Em ghét anh khi:",a:["Ít nhắn","Chơi game","Vô tâm","Ngủ sớm"],c:2},
-
-{q:"7. Phim em thích:",a:["Hài","Hành động","Kinh dị / ngôn tình","Hoạt hình"],c:2},
-
-{q:"8. Điều làm em vui:",a:["Nhắn tin","Nhớ ngày","Bất ngờ","Chọc cười"],c:2},
-
-{q:"9. Làm em cảm động:",a:["Quà đắt","Đi xa","Bất ngờ","Tin nhắn"],c:2},
-
-{q:"10. Khi em nói không sao:",a:["Tin thật","Không hỏi","Dỗ em","Đi làm việc"],c:2}
+{q:"Em thích ăn gì nhất?",a:["Khoai tây","Pizza","Gà rán"],correct:0},
+{q:"Màu em thích?",a:["Hồng","Đen","Xanh"],correct:0},
+{q:"Ngày tụi mình quen nhau?",a:["18-01-2025","01-02-2025","20-01-2025"],correct:0},
+{q:"Em thích uống gì?",a:["Matcha latte","Trà sữa","Cà phê"],correct:0},
+{q:"Em ghét anh khi nào?",a:["Anh vô tâm","Anh ngủ","Anh ăn"],correct:0},
+{q:"Em thích được gọi là gì?",a:["Công chúa nhỏ","Bé","Cục cưng"],correct:0},
+{q:"Điều em thích nhất ở anh?",a:["Quan tâm em","Giàu","Đẹp trai"],correct:0},
+{q:"Em thích xem gì?",a:["Kinh dị","Hài","Thể thao"],correct:0},
+{q:"Em thích anh làm gì?",a:["Tạo bất ngờ","Ngủ","Chơi game"],correct:0},
+{q:"Quà anh tặng em?",a:["Gì cũng thích","Không thích","Chán"],correct:0}
 
 ]
 
-
-let current = 0
-
+let current=0
 
 
 function startQuiz(){
 
-document.getElementById("quiz").style.display = "block"
-
+document.getElementById("quiz").classList.remove("hidden")
 showQuestion()
 
 }
-
 
 
 function showQuestion(){
 
-let q = questions[current]
+let q=quiz[current]
 
-document.getElementById("question").innerText = q.q
+document.getElementById("question").innerText=q.q
 
-let html = ""
+let answers=document.getElementById("answers")
+answers.innerHTML=""
 
 q.a.forEach((ans,i)=>{
 
-html += `<button onclick="checkAnswer(${i})">${ans}</button><br><br>`
+let btn=document.createElement("button")
+
+btn.innerText=ans
+
+btn.onclick=()=>checkAnswer(i)
+
+answers.appendChild(btn)
 
 })
 
-document.getElementById("answers").innerHTML = html
-
 }
-
 
 
 function checkAnswer(i){
 
-if(i === questions[current].c){
+let q=quiz[current]
 
-current++
+if(i===q.correct){
 
-document.getElementById("result").innerText = ""
+document.getElementById("message").innerText="Cục cưng là hiểu em nhất!! 💗"
 
-if(current < questions.length){
-
-showQuestion()
-
-}
-
-else{
-
-document.getElementById("quiz").style.display = "none"
-
-showGift()
-
-}
-
-}
-
-else{
-
-document.getElementById("result").innerText = "Sai rồi ❌"
-
-}
-
-}
-
-
-
-// hiện hộp quà
-
-function showGift(){
-
-document.getElementById("gift").style.display = "block"
-
-}
-
-
-
-// phần bấm hộp quà 100 lần
-
-let clickCount = 0
-
-function openGift(){
-
-clickCount++
-
-let bar = document.getElementById("progress")
-
-let percent = clickCount
-
-if(percent > 100){
-percent = 100
-}
-
-bar.style.width = percent + "%"
-
-
-
-if(clickCount >= 100){
-
-document.body.classList.add("screenShake")
+fireworks()
 
 setTimeout(()=>{
 
-document.getElementById("gift").style.display = "none"
+current++
 
-document.getElementById("book").style.display = "block"
+if(current<quiz.length){
+showQuestion()
+}else{
+endQuiz()
+}
+
+},1200)
+
+}else{
+
+document.getElementById("message").innerText="Đồ vô tâm này!! 😡"
+
+document.body.classList.add("shakeScreen")
+
+setTimeout(()=>{
+document.body.classList.remove("shakeScreen")
+},1000)
+
+}
+
+}
+
+
+/* ===== END QUIZ ===== */
+
+function endQuiz(){
+
+document.getElementById("quiz").classList.add("hidden")
+document.getElementById("giftBox").classList.remove("hidden")
+
+}
+
+
+/* ===== HỘP QUÀ ===== */
+
+let clicks=0
+
+function clickGift(){
+
+clicks++
+
+let percent=(clicks/100)*100
+
+document.getElementById("progress").style.width=percent+"%"
+
+if(clicks>=100){
+
+document.body.classList.add("shakeScreen")
+
+setTimeout(()=>{
+
+document.getElementById("giftBox").classList.add("explode")
+
+setTimeout(()=>{
+
+document.getElementById("giftBox").classList.add("hidden")
+document.getElementById("book").classList.remove("hidden")
 
 },600)
 
-}
+},800)
 
 }
 
+}
 
 
-// lật trang sách
+/* ===== SÁCH ===== */
 
-let page = 0
+let page=1
 
 function nextPage(){
 
+let p=document.getElementById("page"+page)
+
+p.classList.add("flip")
+
+setTimeout(()=>{
+
+p.classList.add("hidden")
+
 page++
 
-document.querySelectorAll(".page").forEach(p => p.style.display = "none")
+if(page<=5){
 
-if(page <= 6){
+document.getElementById("page"+page).classList.remove("hidden")
 
-document.getElementById("page"+page).style.display = "block"
+}else{
+
+document.getElementById("ending").classList.remove("hidden")
+
+}
+
+},700)
+
+}
+
+
+/* ===== TIM BAY ===== */
+
+setInterval(()=>{
+
+let heart=document.createElement("div")
+
+heart.innerHTML="💗"
+
+heart.className="heart"
+
+heart.style.left=Math.random()*100+"%"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),6000)
+
+},400)
+
+
+/* ===== PHÁO HOA THẬT ===== */
+
+function fireworks(){
+
+let canvas=document.getElementById("fireworks")
+let ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+for(let i=0;i<120;i++){
+
+let x=Math.random()*canvas.width
+let y=Math.random()*canvas.height
+
+ctx.beginPath()
+ctx.arc(x,y,3,0,Math.PI*2)
+ctx.fillStyle="white"
+ctx.fill()
 
 }
 
