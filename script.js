@@ -1,27 +1,31 @@
+// mật khẩu
 const PASSWORD="28070808"
 
+// bấm tham gia
 function start(){
 
-cover.classList.add("hidden")
-login.classList.remove("hidden")
+document.getElementById("cover").classList.add("hidden")
+document.getElementById("login").classList.remove("hidden")
 
 }
 
+
+// kiểm tra mật khẩu
 function checkPassword(){
 
 let pass=document.getElementById("password").value
 
 if(pass===PASSWORD){
 
-login.classList.add("hidden")
-heartScene.classList.remove("hidden")
+document.getElementById("login").classList.add("hidden")
+document.getElementById("heartScene").classList.remove("hidden")
 
 setTimeout(()=>{
-heart.style.background="black"
+document.getElementById("heart").style.background="black"
 },800)
 
 setTimeout(()=>{
-heartScene.classList.add("hidden")
+document.getElementById("heartScene").classList.add("hidden")
 startQuiz()
 },2000)
 
@@ -33,6 +37,9 @@ alert("Sai mật khẩu!")
 
 }
 
+
+
+// câu hỏi
 let quiz=[
 
 {
@@ -92,25 +99,37 @@ correct:0
 {
 q:"Nếu là quà anh tặng thì sao?",
 a:["Không thích","Gì cũng thích","Chán"],
-correct:1}
+correct:1
 }
 
 ]
+
+
+
+let current=0
+let quizBox=document.getElementById("quiz")
+
+
+
+// bắt đầu quiz
 function startQuiz(){
 
-quizBox=document.getElementById("quiz")
 quizBox.classList.remove("hidden")
 
 showQuestion()
 
 }
 
+
+
+// hiển thị câu hỏi
 function showQuestion(){
 
 let q=quiz[current]
 
-question.innerText=q.q
+document.getElementById("question").innerText=q.q
 
+let answers=document.getElementById("answers")
 answers.innerHTML=""
 
 q.a.forEach((ans,i)=>{
@@ -119,7 +138,9 @@ let btn=document.createElement("button")
 
 btn.innerText=ans
 
-btn.onclick=()=>checkAnswer(i)
+btn.onclick=function(){
+checkAnswer(i)
+}
 
 answers.appendChild(btn)
 
@@ -127,13 +148,16 @@ answers.appendChild(btn)
 
 }
 
+
+
+// kiểm tra đáp án
 function checkAnswer(i){
 
 let q=quiz[current]
 
 if(i===q.correct){
 
-message.innerText="Đúng rồi 💗"
+document.getElementById("message").innerText="Đúng rồi 💗"
 
 fireworks()
 
@@ -147,8 +171,8 @@ showQuestion()
 
 }else{
 
-quiz.classList.add("hidden")
-giftBox.classList.remove("hidden")
+quizBox.classList.add("hidden")
+document.getElementById("giftBox").classList.remove("hidden")
 
 }
 
@@ -156,19 +180,22 @@ giftBox.classList.remove("hidden")
 
 }else{
 
-message.innerText="Sai rồi trả lời lại 😡"
+document.getElementById("message").innerText="Sai rồi trả lời lại 😡"
 
 }
 
 }
 
+
+
+// hộp quà
 let clicks=0
 
 function clickGift(){
 
 clicks++
 
-progress.style.width=clicks+"%"
+document.getElementById("progress").style.width=clicks+"%"
 
 document.body.style.transform="translateX(3px)"
 
@@ -178,13 +205,16 @@ document.body.style.transform="translateX(0)"
 
 if(clicks>=100){
 
-giftBox.classList.add("hidden")
-book.classList.remove("hidden")
+document.getElementById("giftBox").classList.add("hidden")
+document.getElementById("book").classList.remove("hidden")
 
 }
 
 }
 
+
+
+// lật trang sách
 let page=1
 
 function nextPage(){
@@ -199,28 +229,35 @@ document.getElementById("page"+page).classList.remove("hidden")
 
 }else{
 
-ending.classList.remove("hidden")
+document.getElementById("ending").classList.remove("hidden")
 
 }
 
 }
 
+
+
+// tim bay nền
 setInterval(()=>{
 
 let heart=document.createElement("div")
 
 heart.innerHTML="💗"
-
 heart.className="heart"
 
 heart.style.left=Math.random()*100+"%"
 
 document.body.appendChild(heart)
 
-setTimeout(()=>heart.remove(),6000)
+setTimeout(()=>{
+heart.remove()
+},6000)
 
 },400)
 
+
+
+// pháo hoa
 function fireworks(){
 
 let canvas=document.getElementById("fireworks")
