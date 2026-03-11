@@ -119,11 +119,6 @@ showQuestion()
 
 
 
-
-}
-
-
-
 // hiển thị câu hỏi
 function showQuestion(){
 
