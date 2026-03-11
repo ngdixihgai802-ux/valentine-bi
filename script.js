@@ -227,22 +227,17 @@ let page=1
 
 function nextPage(){
 
-document.getElementById("page"+page).classList.add("hidden")
+let current=document.getElementById("page"+page)
+
+current.classList.add("flipped")
 
 page++
 
-if(page<=5){
-
-document.getElementById("page"+page).classList.remove("hidden")
-
-}else{
-
+if(page>5){
 document.getElementById("ending").classList.remove("hidden")
-
 }
 
 }
-
 
 
 // tim bay nền
