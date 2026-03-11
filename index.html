@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="vi">
 <head>
+
 <meta charset="UTF-8">
-<title>For Bi 💗</title>
+<title>Valentine của chúng ta</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -11,105 +11,150 @@
 
 <body>
 
-<audio autoplay loop>
-<source src="music.mp3">
-</audio>
+<!-- TIM BAY -->
+<div id="hearts"></div>
 
-<h1 id="type"></h1>
+<!-- TRANG BÌA -->
+<div id="cover">
 
-<div id="login">
+<img src="IMG_3944.jpeg" class="coverImg">
 
-<input type="password" id="pass" placeholder="Nhập mật khẩu">
+<h1>Hệ thống tình yêu của Di 💗</h1>
 
-<button onclick="checkPass()">Vào</button>
-
-<p id="loginError"></p>
+<button onclick="start()">Tham gia</button>
 
 </div>
 
 
+
+<!-- ĐĂNG NHẬP -->
+<div id="login" class="hidden">
+
+<h2>Đăng nhập vào hệ thống tình yêu to bự của Di</h2>
+
+<input id="password" placeholder="Nhập mật khẩu">
+
+<button onclick="checkPassword()">Đăng nhập</button>
+
+</div>
+
+
+
+<!-- TRÁI TIM -->
+<div id="heartScene" class="hidden">
+
+<div id="heart">💗</div>
+
+</div>
+
+
+
+<!-- CÂU HỎI -->
 <div id="quiz" class="hidden">
 
 <h2 id="question"></h2>
 
 <div id="answers"></div>
 
-<p id="result"></p>
+<p id="message"></p>
 
 </div>
 
 
-<div id="heartMerge" class="hidden"></div>
 
+<!-- HỘP QUÀ -->
+<div id="giftBox" class="hidden">
 
-<div id="gift" class="hidden">
+<h2>Chúc mừng anh qua ải thành công</h2>
 
-<h2>Món quà cho Bi 🎁</h2>
+<p>Nhấp để mở quà 💗</p>
 
-<button onclick="openGift()">Mở quà</button>
+<button onclick="clickGift()">Nhấp</button>
 
-<div class="bar">
+<div id="progressBar">
 <div id="progress"></div>
 </div>
 
 </div>
 
 
+
+<!-- CUỐN SÁCH -->
 <div id="book" class="hidden">
 
-<div id="cover" onclick="nextPage()">
-📖 Nhật kí anh và em
-<br><br>
-Bấm để mở
-</div>
+<div id="page1" class="page">
 
-
-<div class="page hidden" id="page1">
-<h3>Tụi mình khi mới quen nhau</h3>
 <img src="IMG_1892.jpeg">
-</div>
-
-
-<div class="page hidden" id="page2">
-<h3>thời gian đầu thật sự rất khó khăn</h3>
-<img src="IMG_9236.jpeg">
-</div>
-
-
-<div class="page hidden" id="page3">
-<h3>nhưng tụi mình vẫn cùng nhau đi tiếp</h3>
-<img src="IMG_2722.jpeg">
-</div>
-
-
-<div class="page hidden" id="page4">
-<h3>em cảm ơn rất nhiều vì vẫn luôn ở đây</h3>
-<img src="IMG_3928.jpeg">
-</div>
-
-
-<div class="page hidden" id="page5">
-
-<h3>Thư gửi anh</h3>
 
 <p>
-Hôm nay là Valentine 14/3, ngày mà em muốn nói với anh những điều em vẫn luôn giữ trong lòng. Trong thế giới rộng lớn này, có hàng triệu người lướt qua nhau, nhưng thật may mắn vì em đã gặp được anh. Em vẫn luôn nghĩ rằng việc hai người gặp nhau, quen nhau rồi ở lại bên nhau không phải là chuyện hiển nhiên, nên đôi khi em cũng tự hỏi tại sao giữa rất nhiều người như vậy, em lại gặp đúng anh. Anh không phải kiểu người lãng mạn, cũng không giỏi nói những lời ngọt ngào, thậm chí có lúc còn hơi ngốc nữa, nhiều chuyện em phải nói ra anh mới hiểu, phải nhắc thì anh mới để ý. Có những lúc em cũng giận, cũng tủi thân, vì em nghĩ giá như anh tinh ý hơn một chút thì tốt biết mấy. Nhưng rồi nghĩ lại, em vẫn nhận ra rằng dù anh có ngốc nghếch trong cách thể hiện thế nào đi nữa, anh vẫn là người mà em muốn ở cạnh. Có lẽ vì ở bên anh, mọi thứ rất thật, không màu mè, không cố gắng trở thành một phiên bản hoàn hảo nào cả. Em có thể giận dỗi, có thể cằn nhằn, có thể nói nhiều đến mức chính em cũng thấy mình phiền, nhưng anh vẫn ở đó.
-  
-Valentine này em không muốn nói những lời quá hoa mỹ, em chỉ muốn nói thật lòng rằng ở bên anh em đã có rất nhiều cảm xúc, có lúc vui, có lúc buồn, có lúc bực mình đến mức chỉ muốn đánh anh một cái vì cái đầu ngốc của anh, nhưng cuối cùng thì em vẫn không muốn mất anh. Nếu có điều gì em mong ở anh, thì chỉ là sau này anh có thể hiểu em nhiều hơn một chút, để ý em nhiều hơn một chút, đừng để em lúc nào cũng phải nói ra hết mọi thứ. Nhưng dù sao đi nữa, em vẫn rất biết ơn vì anh đã xuất hiện trong cuộc đời em, vì giữa rất nhiều người ngoài kia, người đang ở cạnh em hôm nay lại là anh. Chúc anh một Valentine 14/3 thật vui, và nếu có thể thì hy vọng những Valentine sau này… người đứng cạnh anh vẫn sẽ là em. 
+Ngày 18-01-2025  
+em và anh trở thành một cặp với nhau
 </p>
 
 </div>
 
 
-<div class="page hidden" id="page6">
 
-<h2>Cảm ơn anh 💗</h2>
+<div id="page2" class="page hidden">
 
-<p>Em thương anh rất nhiều.</p>
+<img src="IMG_9236.jpeg">
+
+<p>
+Tụi mình đã yêu nhau bằng những cách vụng về nhất  
+cãi nhau, đòi chia tay  
+hay không hiểu nhau…
+</p>
 
 </div>
 
+
+
+<div id="page3" class="page hidden">
+
+<img src="IMG_2722.jpeg">
+
+<p>
+Nhưng anh vẫn chọn ở tiếp bên cạnh em  
+dù tính cách em càng khó chịu hơn
+</p>
+
 </div>
+
+
+
+<div id="page4" class="page hidden">
+
+<img src="IMG_3928.jpeg">
+
+<p>
+Cảm ơn anh vì đã đến bên em  
+chăm lo cho em  
+dù anh chẳng có gì trong tay  
+vẫn luôn cố gắng làm em vui
+</p>
+
+</div>
+
+
+
+<div id="page5" class="page hidden">
+
+<p id="letter">
+
+Hôm nay là Valentine 14/3, ngày mà em muốn nói với anh những điều em vẫn luôn giữ trong lòng. Trong thế giới rộng lớn này, có hàng triệu người lướt qua nhau, nhưng thật may mắn vì em đã gặp được anh. Em vẫn luôn nghĩ rằng việc hai người gặp nhau, quen nhau rồi ở lại bên nhau không phải là chuyện hiển nhiên, nên đôi khi em cũng tự hỏi tại sao giữa rất nhiều người như vậy, em lại gặp đúng anh. Anh không phải kiểu người lãng mạn, cũng không giỏi nói những lời ngọt ngào, thậm chí có lúc còn hơi ngốc nữa, nhiều chuyện em phải nói ra anh mới hiểu, phải nhắc thì anh mới để ý. Có những lúc em cũng giận, cũng tủi thân, vì em nghĩ giá như anh tinh ý hơn một chút thì tốt biết mấy. Nhưng rồi nghĩ lại, em vẫn nhận ra rằng dù anh có ngốc nghếch trong cách thể hiện thế nào đi nữa, anh vẫn là người mà em muốn ở cạnh. Có lẽ vì ở bên anh, mọi thứ rất thật, không màu mè, không cố gắng trở thành một phiên bản hoàn hảo nào cả. Em có thể giận dỗi, có thể cằn nhằn, có thể nói nhiều đến mức chính em cũng thấy mình phiền, nhưng anh vẫn ở đó.
+
+Valentine này em không muốn nói những lời quá hoa mỹ, em chỉ muốn nói thật lòng rằng ở bên anh em đã có rất nhiều cảm xúc, có lúc vui, có lúc buồn, có lúc bực mình đến mức chỉ muốn đánh anh một cái vì cái đầu ngốc của anh, nhưng cuối cùng thì em vẫn không muốn mất anh. Nếu có điều gì em mong ở anh, thì chỉ là sau này anh có thể hiểu em nhiều hơn một chút, để ý em nhiều hơn một chút, đừng để em lúc nào cũng phải nói ra hết mọi thứ. Nhưng dù sao đi nữa, em vẫn rất biết ơn vì anh đã xuất hiện trong cuộc đời em, vì giữa rất nhiều người ngoài kia, người đang ở cạnh em hôm nay lại là anh. Chúc anh một Valentine 14/3 thật vui, và nếu có thể thì hy vọng những Valentine sau này… người đứng cạnh anh vẫn sẽ là em. 💌
+</p>
+
+</div>
+
+
+
+<button onclick="nextPage()">Lật trang</button>
+
+</div>
+
+
 
 <script src="script.js"></script>
 
