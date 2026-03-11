@@ -107,7 +107,15 @@ correct:1
 
 
 let current=0
+function startQuiz(){
+
 let quizBox=document.getElementById("quiz")
+
+quizBox.classList.remove("hidden")
+
+showQuestion()
+
+}
 
 
 
@@ -171,7 +179,7 @@ showQuestion()
 
 }else{
 
-quizBox.classList.add("hidden")
+document.getElementById("quiz").classList.add("hidden")
 document.getElementById("giftBox").classList.remove("hidden")
 
 }
