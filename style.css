@@ -94,7 +94,7 @@ background:#ff4da6;
 border-radius:10px;
 }
 
-.#book{
+#book{
 perspective:2000px;
 width:90%;
 max-width:600px;
