@@ -34,10 +34,6 @@ padding:12px;
 font-size:18px;
 border-radius:10px;
 border:none;
-margin-top:15px;
-}
-
-#heart{
 width:120px;
 height:120px;
 background:red;
@@ -47,14 +43,15 @@ margin:120px auto;
 animation:beat 1s infinite;
 }
 
-#heart:before,
-#heart:after{
-content:"";
+#heart{
 width:120px;
 height:120px;
 background:red;
-border-radius:50%;
-position:absolute;
+position:relative;
+margin:120px auto;
+transform:rotate(-45deg);
+animation:beat 1s infinite;
+border-radius:20px;
 }
 
 #heart:before{
