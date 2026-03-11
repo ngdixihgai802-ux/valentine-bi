@@ -1,12 +1,13 @@
-let password="nguoiemyeunhatlabi_28082010"
+// mật khẩu
+let password = "nguoiemyeunhatlabi_28082010"
 
 function checkPass(){
 
-let pass=document.getElementById("pass").value
+let pass = document.getElementById("pass").value
 
-if(pass===password){
+if(pass === password){
 
-document.getElementById("login").style.display="none"
+document.getElementById("login").style.display = "none"
 
 startQuiz()
 
@@ -14,7 +15,7 @@ startQuiz()
 
 else{
 
-document.getElementById("loginError").innerText="Sai mật khẩu rồi :<"
+document.getElementById("loginError").innerText = "Sai mật khẩu rồi :<"
 
 }
 
@@ -22,7 +23,9 @@ document.getElementById("loginError").innerText="Sai mật khẩu rồi :<"
 
 
 
-let questions=[
+// danh sách câu hỏi
+
+let questions = [
 
 {q:"1. ăn em thích nhất là gì?",a:["Gà rán","Khoai tây","Mì ý","Sushi"],c:1},
 
@@ -47,44 +50,49 @@ let questions=[
 ]
 
 
-let current=0
+let current = 0
+
 
 
 function startQuiz(){
 
-document.getElementById("quiz").style.display="block"
+document.getElementById("quiz").style.display = "block"
 
 showQuestion()
 
 }
 
 
+
 function showQuestion(){
 
-let q=questions[current]
+let q = questions[current]
 
-document.getElementById("question").innerText=q.q
+document.getElementById("question").innerText = q.q
 
-let html=""
+let html = ""
 
 q.a.forEach((ans,i)=>{
 
-html+=`<button onclick="checkAnswer(${i})">${ans}</button><br><br>`
+html += `<button onclick="checkAnswer(${i})">${ans}</button><br><br>`
 
 })
 
-document.getElementById("answers").innerHTML=html
+document.getElementById("answers").innerHTML = html
 
 }
 
 
+
 function checkAnswer(i){
 
-if(i===questions[current].c){
+if(i === questions[current].c){
 
 current++
 
-if(current<questions.length){
+document.getElementById("result").innerText = ""
+
+if(current < questions.length){
 
 showQuestion()
 
@@ -92,7 +100,7 @@ showQuestion()
 
 else{
 
-document.getElementById("quiz").style.display="none"
+document.getElementById("quiz").style.display = "none"
 
 showGift()
 
@@ -102,59 +110,75 @@ showGift()
 
 else{
 
-document.getElementById("result").innerText="Sai rồi ❌"
+document.getElementById("result").innerText = "Sai rồi ❌"
 
 }
 
 }
 
+
+
+// hiện hộp quà
 
 function showGift(){
 
-document.getElementById("gift").style.display="block"
+document.getElementById("gift").style.display = "block"
 
 }
 
+
+
+// phần bấm hộp quà 100 lần
+
+let clickCount = 0
 
 function openGift(){
 
-let bar=document.getElementById("progress")
+clickCount++
 
-let w=0
+let bar = document.getElementById("progress")
 
-let load=setInterval(()=>{
+let percent = clickCount
 
-w++
+if(percent > 100){
+percent = 100
+}
 
-bar.style.width=w+"%"
+bar.style.width = percent + "%"
 
-if(w>=100){
 
-clearInterval(load)
 
-document.getElementById("gift").style.display="none"
+if(clickCount >= 100){
 
-document.getElementById("book").style.display="block"
+document.body.classList.add("screenShake")
+
+setTimeout(()=>{
+
+document.getElementById("gift").style.display = "none"
+
+document.getElementById("book").style.display = "block"
+
+},600)
 
 }
 
-},30)
-
 }
 
 
 
-let page=0
+// lật trang sách
+
+let page = 0
 
 function nextPage(){
 
 page++
 
-document.querySelectorAll(".page").forEach(p=>p.style.display="none")
+document.querySelectorAll(".page").forEach(p => p.style.display = "none")
 
-if(page<=6){
+if(page <= 6){
 
-document.getElementById("page"+page).style.display="block"
+document.getElementById("page"+page).style.display = "block"
 
 }
 
