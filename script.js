@@ -22,7 +22,7 @@ alert("Sai mật khẩu!")
 
 
 
-let quiz=[
+let questions=[
 
 {q:"Em thích ăn gì nhất?",a:["Pizza","Khoai tây","Gà rán"],correct:1},
 {q:"Màu em thích nhất?",a:["Đen","Hồng","Xanh"],correct:1},
@@ -44,7 +44,7 @@ showQuestion()
 
 function showQuestion(){
 
-let q=quiz[current]
+let q=questions[current]
 
 question.innerText=q.q
 
@@ -67,7 +67,7 @@ answers.appendChild(btn)
 
 function checkAnswer(i){
 
-if(i===quiz[current].correct){
+if(i===questions[current].correct){
 
 message.innerText="Đúng rồi 💗"
 
@@ -77,7 +77,7 @@ setTimeout(()=>{
 
 current++
 
-if(current<quiz.length){
+if(current<questions.length){
 
 showQuestion()
 
