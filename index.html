@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<meta charset="UTF-8">
+<title>For Bi 💗</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="music.mp3">
+</audio>
+
+<h1 id="type"></h1>
+
+<div id="login">
+
+<input type="password" id="pass" placeholder="Nhập mật khẩu">
+
+<button onclick="checkPass()">Vào</button>
+
+<p id="loginError"></p>
+
+</div>
+
+
+<div id="quiz" class="hidden">
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+<p id="result"></p>
+
+</div>
+
+
+<div id="heartMerge" class="hidden"></div>
+
+
+<div id="gift" class="hidden">
+
+<h2>Món quà cho Bi 🎁</h2>
+
+<button onclick="openGift()">Mở quà</button>
+
+<div class="bar">
+<div id="progress"></div>
+</div>
+
+</div>
+
+
+<div id="book" class="hidden">
+
+<div id="cover" onclick="nextPage()">
+📖 Nhật kí anh và em
+<br><br>
+Bấm để mở
+</div>
+
+
+<div class="page hidden" id="page1">
+<h3>Tụi mình khi mới quen nhau</h3>
+<img src="page1.jpg">
+</div>
+
+
+<div class="page hidden" id="page2">
+<h3>6 tháng tụi mình quen nhau</h3>
+<img src="page2.jpg">
+</div>
+
+
+<div class="page hidden" id="page3">
+<h3>1 năm tụi mình quen nhau</h3>
+<img src="page3.jpg">
+</div>
+
+
+<div class="page hidden" id="page4">
+<h3>Hiện tại</h3>
+<img src="page4.jpg">
+</div>
+
+
+<div class="page hidden" id="page5">
+
+<h3>Thư gửi anh</h3>
+
+<p>
+Hôm nay là Valentine 14/3, ngày mà em muốn nói với anh những điều em vẫn luôn giữ trong lòng...
+</p>
+
+</div>
+
+
+<div class="page hidden" id="page6">
+
+<h2>Cảm ơn anh 💗</h2>
+
+<p>Em thương anh rất nhiều.</p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
