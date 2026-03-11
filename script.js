@@ -119,12 +119,6 @@ showQuestion()
 
 
 
-// bắt đầu quiz
-function startQuiz(){
-
-quizBox.classList.remove("hidden")
-
-showQuestion()
 
 }
 
