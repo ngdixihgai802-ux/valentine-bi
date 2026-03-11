@@ -1,3 +1,6 @@
+window.onload=function(){
+console.log("web loaded")
+}
 // mật khẩu
 const PASSWORD="28070808"
 
@@ -239,14 +242,13 @@ heart.className="heart"
 
 heart.style.left=Math.random()*100+"%"
 
-document.body.appendChild(heart)
+document.getElementById("hearts").appendChild(heart)
 
 setTimeout(()=>{
 heart.remove()
 },6000)
 
 },400)
-
 
 
 // pháo hoa
