@@ -1,1 +1,85 @@
+body{
 
+background:linear-gradient(-45deg,#ff9ecf,#ffc0e6,#ffd6f0,#ffb6d9);
+background-size:400% 400%;
+animation:bg 10s infinite;
+
+font-family:sans-serif;
+text-align:center;
+margin:0;
+min-height:100vh;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.hidden{
+display:none;
+}
+
+button{
+
+background:#ff4d88;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:20px;
+cursor:pointer;
+
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.bar{
+
+width:300px;
+height:20px;
+background:#ddd;
+margin:auto;
+border-radius:10px;
+overflow:hidden;
+
+}
+
+#progress{
+height:100%;
+width:0%;
+background:#ff4d88;
+}
+
+.page{
+
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+margin-top:20px;
+
+}
+
+.page img{
+
+width:100%;
+border-radius:10px;
+
+}
+
+#cover{
+
+background:white;
+padding:40px;
+border-radius:20px;
+cursor:pointer;
+font-size:28px;
+margin-top:40px;
+
+}
